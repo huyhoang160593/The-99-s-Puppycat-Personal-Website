@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" x-data :data-theme="$store.themeSetting.theme">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.violet.min.css" />
+	<link rel="stylesheet" href="public/css/index.css">
+	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+	<title>The 99's Puppycat Personal Website</title>
+</head>
+
+<body>
+	<header>
+		<section>
+			The 99's Puppycat
+		</section>
+		<section>
+			<nav>
+				<ul>
+					<li>
+						<a href="#">Về tôi</a>
+					</li>
+					<li>
+						<a href="#">Curriculum vitae</a>
+					</li>
+					<li>
+						<a href="#">Việc đã làm</a>
+					</li>
+					<li><a href="#">Favorite Music</a></li>
+				</ul>
+				<ul>
+					<li x-data><button @click="$store.themeSetting.toggleTheme()" x-text="$store.themeSetting.theme"></button>
+					</li>
+				</ul>
+			</nav>
+		</section>
+	</header>
+	<main>
+		<section id="introduce-myself">
+			<hgroup>
+				<h1>Xin chào. Tên tôi là</h1>
+				<p>The 99's Puppycat</p>
+			</hgroup>
+		</section>
+		<section id="working-experience">
+
+		</section>
+
+		<section id="">
+
+		</section>
+	</main>
+	<footer>
+
+	</footer>
+</body>
+
+<script>
+	document.addEventListener('alpine:init', () => {
+		console.info('running store')
+		Alpine.store('themeSetting', {
+			theme: 'light',
+
+			toggleTheme() {
+				switch (this.theme) {
+					case 'light': this.theme = 'dark'; break;
+					case 'dark': this.theme = 'light'; break;
+				}
+			}
+		})
+	})
+</script>
+
+</html>
