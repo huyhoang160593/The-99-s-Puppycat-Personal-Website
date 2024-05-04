@@ -1,0 +1,9 @@
+{
+	"include": ["**/*.js"],
+	"typeAcquisition": {
+		"enable": true,
+		"include": [
+			"alpinejs"
+		]
+	},
+}
