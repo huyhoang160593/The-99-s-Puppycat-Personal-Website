@@ -10,4 +10,5 @@ Alpine.store('themeSetting', {
 		}
 	}
 })
+
 Alpine.start()

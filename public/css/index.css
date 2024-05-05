@@ -29,3 +29,13 @@
 		background-repeat: no-repeat;
 	}
 }
+
+#heart-break-icon {
+	display: inline-block;
+	background: var(--pico-color);
+	-webkit-mask-image: url("/public/svgs/PhHeartBreakDuotone.svg");
+	mask-image: url("/public/svgs/PhHeartBreakDuotone.svg");
+	height: 32px;
+	width: 32px;
+	transform: translateY(30%);
+}
