@@ -5,8 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.violet.min.css" />
-	<link rel="stylesheet" href="public/css/index.css">
+	<link rel="stylesheet" href="/public/libraries/picocss/pico.violet.min.css" />
+	<link rel="stylesheet" href="/public/css/index.css">
 
 	<title>The 99's Puppycat Personal Website</title>
 </head>
@@ -27,7 +27,9 @@
 					<a href="#">Curriculum Vitae</a>
 				</li>
 				<!-- <li><a href="#">Sở thích</a></li> -->
-				<li x-data><button @click="$store.themeSetting.toggleTheme()" x-text="$store.themeSetting.theme">
+				<li x-data>
+					<button id="toggle-theme-button" type="button" title="toggle-theme-button" @click="$store.themeSetting.toggleTheme()"
+						x-bind:data-theme="$store.themeSetting.theme">
 					</button>
 				</li>
 			</ul>
@@ -83,21 +85,25 @@
 		</section>
 		<section id="technologies-used">
 			<h6>Công nghệ sử dụng</h6>
-			<ul>
+			<menu>
 				<li><a href="https://picocss.com/">PicoCSS</a></li>
 				<li><a href="https://alpinejs.dev/">AlpineJS</a></li>
-			</ul>
+			</menu>
 		</section>
-		<p>© Được tạo nên bởi <img src="/public/images/PhHeartBreakDuotone.svg" alt="heart-break-icon"> của The 99's
-			Puppycat - Đã đăng ký bản quyền</p>
+		<p>
+			© Được tạo nên bởi
+			<img src="/public/svgs/PhHeartBreakDuotone.svg" alt="heart-break-icon">
+			của The 99's Puppycat - Đã đăng ký bản quyền
+		</p>
 	</footer>
 </body>
 <script type="importmap">
 {
   "imports": {
-    "alpinejs": "https://esm.run/alpinejs"
+    "alpinejs": "/public/libraries/alpinejs@3.13.10/module.esm.js"
   }
 }
 </script>
-<script type="module" src="public/js/index.js"></script>
+<script type="module" src="/public/js/index.js"></script>
+
 </html>
