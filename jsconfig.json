@@ -3,7 +3,8 @@
 	"typeAcquisition": {
 		"enable": true,
 		"include": [
-			"alpinejs"
+			"alpinejs",
+			"animejs"
 		]
 	},
 }

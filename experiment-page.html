@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Page thử nghiệm</title>
+	<link rel="stylesheet" href="/public/libraries/picocss/pico.violet.min.css" />
+	<link rel="stylesheet" href="/public/css/experiment-page.css">
+</head>
+<body x-data>
+	<main @mousemove="$store.global.onMouseMoveEventHandle">
+		<section id="dumb-eyes">
+			<div class="eye"></div>
+			<div class="eye"></div>
+		</section>
+	</main>
+</body>
+
+<script type="importmap">
+{
+  "imports": {
+    "alpinejs": "/public/libraries/alpinejs@3.13.10/module.esm.js",
+    "animejs": "/public/libraries/animejs@3.2.2/module.esm.js"
+  }
+}
+</script>
+<script type="module" src="/public/js/experiment-page.js"></script>
+</html>
