@@ -48,10 +48,31 @@ article[title='forgive-me'] {
 
 @media only screen and (min-width: 768px) {
   article[title='forgive-me'] {
-    margin: 0px 50px;
+    width: 650px;
+    margin: 0px auto;
   }
 }
 
+#action {
+  transition: opacity 1s;
+}
+#action.hidden {
+  pointer-events: none;
+}
+
+#request {
+  display: flex;
+  justify-content: center;
+}
+#request input {
+  flex-grow: 1;
+  margin-bottom: 0px;
+}
+#request button {
+  width: 8vw;
+  border-radius: 50%;
+  margin-bottom: 0px;
+}
 
 article[title='forgive-me'] h2 {
   text-align: center;
@@ -133,6 +154,7 @@ button[title='runaway-button'] {
 .firework,
 .firework::before,
 .firework::after {
+  pointer-events: none;
   --initialSize: 0.5vmin;
   --finalSize: 45vmin;
   --particleSize: 0.2vmin;

@@ -39,20 +39,33 @@ Alpine.store("global", {
 	 * @param {MouseEvent & { target: HTMLButtonElement }} e
 	 */
 	onForgiveHandle(e) {
-		const fireworkElement = (document.getElementById("firework-group"))
-		const forgiveElement = document.getElementById("forgive-success")
-		const iframeCollection = document.getElementsByTagName('iframe')
+		let thingsYouLike = ""
+		while (thingsYouLike === "") {
+			thingsYouLike = prompt('Nhập điều kiện để tha lỗi anh người yêu')
+		}
+		if (thingsYouLike) {
+			alert("Tin nhắn đã được gửi đến anh người iu vô tri, sẽ phản hồi em sớm nhất")
+			fetch('https://ntfy.sh/flb_ayhun_uoplb', {
+				method: 'POST',
+				body: `Cô ấy đã tha lỗi cho bạn với điều kiện: ${thingsYouLike}`
+			})
+			const fireworkElement = (document.getElementById("firework-group"))
+			const forgiveElement = document.getElementById("forgive-success")
+			const iframeCollection = document.getElementsByTagName('iframe')
+			const actionElement = document.getElementById('action')
 
-		if (fireworkElement.classList.contains('hidden')) {
-			fireworkElement.classList.remove('hidden')
-		}
-		if (forgiveElement.classList.contains('hidden')) {
-			forgiveElement.classList.remove('hidden')
-		}
-		if (iframeCollection.length > 0) {
-			if (iframeCollection.item(0).classList.contains('hidden')) {
-				iframeCollection.item(0).classList.remove('hidden')
+			if (fireworkElement.classList.contains('hidden')) {
+				fireworkElement.classList.remove('hidden')
 			}
+			if (forgiveElement.classList.contains('hidden')) {
+				forgiveElement.classList.remove('hidden')
+			}
+			if (iframeCollection.length > 0) {
+				if (iframeCollection.item(0).classList.contains('hidden')) {
+					iframeCollection.item(0).classList.remove('hidden')
+				}
+			}
+			actionElement.classList.toggle('hidden')
 		}
 	}
 })
