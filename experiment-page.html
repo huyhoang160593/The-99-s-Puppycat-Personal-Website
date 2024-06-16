@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,40 @@
 	<link rel="stylesheet" href="/public/libraries/picocss/pico.violet.min.css" />
 	<link rel="stylesheet" href="/public/css/experiment-page.css">
 </head>
+
 <body x-data>
 	<main @mousemove="$store.global.onMouseMoveEventHandle">
 		<section id="dumb-eyes">
 			<div class="eye"></div>
 			<div class="eye"></div>
 		</section>
+		<article title="forgive-me">
+			<h2>
+				Tha lỗi cho anh người iu bị ngâu si nha 😭
+			</h2>
+			<div>
+				<button type="button" title="forgive" @click="$store.global.onForgiveHandle">Tha lỗi</button>
+				<button type="button" title="runaway-button" class="outline secondary"
+					@mouseenter="$store.global.onMouseEnterHandle" @click="$store.global.onMouseEnterHandle"> Không tha lỗi
+				</button>
+			</div>
+		</article>
+		<section id="forgive-success" class="hidden">
+			<h5>
+				Xin gửi tặng người đẹp đóa hoa xinh đẹp nhất!
+			</h5>
+			<div>
+				<img style="transform: scale(-1,1)" src="public/images/cat-with-flowers.jpg" alt="cat-with-flowers-mirror">
+				<img src="public/images/cat-with-flowers.jpg" alt="cat-with-flowers">
+			</div>
+		</section>
+		<section id="firework-group" class="hidden">
+			<div class="firework"></div>
+			<div class="firework"></div>
+			<div class="firework"></div>
+		</section>
+		<iframe src="https://giphy.com/embed/Boj3LRuxZjhrq" width="117" height="66" frameBorder="0" class="giphy-embed hidden"
+			allowFullScreen></iframe>
 	</main>
 </body>
 
@@ -25,4 +54,5 @@
 }
 </script>
 <script type="module" src="/public/js/experiment-page.js"></script>
+
 </html>
