@@ -1,16 +1,130 @@
 ---
+import HeroIconInformationCircle from "@/components/HeroIconInformationCircle.astro";
+import HeroIconPhoto from "@/components/HeroIconPhoto.astro";
+import LandingLayout from "@/layouts/LandingLayout.astro";
 
+const title = "Orange's Site";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>The 99's Puppycat</title>
-  </head>
-  <body>
-    <h1>Hello from Astro</h1>
-  </body>
-</html>
+<!--
+  MARK: Components
+-->
+<LandingLayout title={title}>
+  <article>
+    <main>
+      <section aria-label="center_cursor">&nbsp;</section>
+    </main>
+    <nav>
+      <div aria-label="navigation_group">
+        <a href="#"><HeroIconPhoto /></a>
+        <a href="#"><span aria-label="click_to_reserve">&nbsp;</span></a>
+        <a href="#"><HeroIconInformationCircle /></a>
+      </div>
+    </nav>
+  </article>
+</LandingLayout>
+<!--
+  MARK: Styles
+-->
+<style>
+  article {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    display: flex;
+
+    a {
+      text-decoration: none;
+    }
+    a:link,
+    a:visited {
+      color: white;
+    }
+
+    main {
+      flex-grow: 1;
+      position: relative;
+    }
+
+    [aria-label="center_cursor"] {
+      /* {@link https://css-tip.com/corner-only-border-image/ Corner Only Border Image} */
+      --s: 50px; /* the size on the corner */
+      --t: 5px; /* the thickness of the border */
+      --g: 20px; /* the gap between the border and image */
+
+      padding: calc(var(--g) + var(--t));
+      outline: var(--t) solid white; /* the color here */
+      outline-offset: calc(-1 * var(--t));
+      mask:
+        conic-gradient(at var(--s) var(--s), #0000 75%, #000 0) 0 0 /
+          calc(100% - var(--s)) calc(100% - var(--s)),
+        linear-gradient(#000 0 0) content-box;
+      transition: 0.4s;
+
+      width: 10vw;
+      aspect-ratio: 1/1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        outline-offset: calc(var(--g) / -1);
+      }
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      div[aria-label="navigation_group"] {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        a svg {
+          width: 4rem;
+          height: 4rem;
+          transform: translateX(0.5rem);
+        }
+        span[aria-label="click_to_reserve"] {
+          display: block;
+          width: 5rem;
+          border-radius: 100%;
+          border: 0.3rem solid black;
+          outline: 0.1rem solid white;
+          aspect-ratio: 1/1;
+          background-color: red;
+          transition: transform 0.3s linear;
+          &:hover {
+            transform: scale(1.1);
+          }
+          &:active {
+            transform: scale(0.9);
+          }
+        }
+      }
+    }
+  }
+
+  @media (orientation: landscape) {
+    article {
+      flex-direction: row;
+    }
+
+    nav {
+      flex: 0 0 120px;
+    }
+  }
+
+  @media (orientation: portrait) {
+    article {
+      flex-direction: column;
+    }
+
+    nav {
+      flex: 0 0 150px;
+    }
+  }
+</style>
